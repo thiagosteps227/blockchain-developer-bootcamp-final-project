@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import CreateProjectUseCase from "../web3/createProject/CreateProjectUseCase";
 import ListCampaignWeb3UseCase from "../web3/listCampaign/ListCampaignWeb3UseCase";
 import FundingCampaignUseCase from "../web3/fundingCampaign/FundingCampaignUseCase";
+import CheckGoalReachedUseCase from "../web3/checkGoalReached/CheckGoalReachedUseCase";
 import source from "../images/childrenproject.png";
 
 import Web3 from "web3";
@@ -27,7 +28,7 @@ export default function Project() {
   //   goal
   // };
 
-  const [donationValue, setValue] = useState("");
+  const [goalValue, setValue] = useState("");
   const [fundValue, setFundValue] = useState("");
   const [lastName, setLastName] = useState("");
   const [checkbox, setCheckbox] = useState(false);
@@ -37,34 +38,47 @@ export default function Project() {
     fundingGoal: "",
     numFunders: "",
   });
+  const [goalReached, setGoalReached] = useState({
+    reached: "",
+  });
 
   const postData = () => {
-    console.log(donationValue);
+    console.log(goalValue);
     console.log(lastName);
     console.log(checkbox); //
   };
   const createProject = () => {
-    console.log("Amount donated -> " + donationValue);
-    setValue(donationValue);
-    CreateProjectUseCase().create(donationValue);
+    console.log("Amount donated -> " + goalValue);
+    setValue(goalValue);
+    CreateProjectUseCase().create(goalValue.toString());
   };
 
   const fundCampaign = (campaignID) => {
     console.log("Amount funded -> " + fundValue);
     setFundValue(fundValue);
-    FundingCampaignUseCase().fund(campaignID,fundValue.toString());
+    FundingCampaignUseCase().fund(campaignID, fundValue.toString());
   };
 
   useEffect(() => {
     (async () => {
       const campaign = await ListCampaignWeb3UseCase().getCampaign(0);
-        setCampaign(campaign);
+      setCampaign(campaign);
     })();
   }, [0]);
 
-  // campaign = ListCampaignWeb3UseCase().getCampaign(0, (response) => {
-  //   console.log(response);
-  // });
+  useEffect(() => {
+    (async () => {
+      const goalReached = await CheckGoalReachedUseCase().checkGoalReached(0);
+      setGoalReached(goalReached);
+    })();
+  }, [1]);
+
+  console.log(goalReached);
+
+  const campaignGoalReached = goalReached
+    ? "Goal reached! Thanks for your support"
+    : "Not yet, keep donating!";
+
   console.log(campaign);
   console.log(campaign.amount);
   console.log(campaign.beneficiary);
@@ -76,7 +90,7 @@ export default function Project() {
       <Box>
         <Image
           width="100%"
-          height="300px"
+          height="250px"
           display="flex"
           alignItems="flex-end"
           justifyContent="center"
@@ -88,7 +102,7 @@ export default function Project() {
         />
         <Flex justifyContent="space-between">
           <Box flex="2" maxWidth="800px" mr="50px">
-            <Box mb="8" margin="10px">
+            <Box mb="8" margin="5px">
               <Heading fontSize="30px">Our Mission</Heading>
               <Text mt="35px" fontSize="20px">
                 {"Our mission is to allow children to have dreams!"}
@@ -123,20 +137,11 @@ export default function Project() {
           />
         </Form.Field>
         <Button onClick={createProject} type="submit">
-          Create a campaign!
+          Create a new campaign!
         </Button>
       </Form>
 
       <Box m="15px 0 30px 0" p="0 10px">
-        <Heading
-          maxW={{ xl: "17ch", lg: "25ch", sm: "30ch" }}
-          h="30px"
-          fontSize="2xl"
-          isTruncated
-        >
-          {campaign.campaignID}
-        </Heading>
-
         <Flex
           mt="10px"
           width="100%"
@@ -148,9 +153,14 @@ export default function Project() {
           </Text>
         </Flex>
         <Text fontWeight="bold" mt="10px" fontSize="20px">
-          Campaign Goal: {campaign.fundingGoal} BNB
+          Campaign Goal: {fromWei(campaign.fundingGoal)} BNB
         </Text>
-        
+
+        <Text fontWeight="bold" mt="20px">
+          {"Goal reached: "}
+          {campaignGoalReached}
+        </Text>
+
         <Text fontWeight="bold" mt="10px" fontSize="20px">
           Campaign funds
         </Text>
@@ -187,9 +197,7 @@ export default function Project() {
             isLoading={"loading"}
             loadingText="Talking to your wallet..."
             type="submit"
-            onClick={() =>
-            fundCampaign(0)
-            }
+            onClick={() => fundCampaign(0)}
           >
             Fund a Campaign
           </Button>

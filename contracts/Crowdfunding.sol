@@ -33,16 +33,16 @@ contract Crowdfunding {
 
     event GoalReached(uint256 campaignID);
 
-    function newCampaign(address payable beneficiary, uint256 goal) public {
+    function newCampaign(address payable beneficiary, uint256 fundingGoal) public {
         uint256 amount = 0;
         uint256 campaignID = numCampaigns++;
-        uint256 numFunders = 0;
+        uint256 numFunders;
 
         campaigns[campaignID] = Campaign(
             campaignID,
             beneficiary,
+            fundingGoal,
             numFunders,
-            goal,
             amount
         );
 

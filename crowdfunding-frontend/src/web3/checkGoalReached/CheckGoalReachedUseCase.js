@@ -14,9 +14,9 @@ const metamaskLogin = async () => {
 
 metamaskLogin();
 
-function ListCampaignWeb3UseCase() {
+function CheckGoalReachedUseCase() {
   return {
-    getCampaign: async (campaignID, callback) => {
+    checkGoalReached: async (campaignID, callback) => {
       const provider = await detectEthereumProvider();
 
       let web3 = new Web3(provider);
@@ -26,13 +26,11 @@ function ListCampaignWeb3UseCase() {
         config.crowdfundingAddress
       );
 
-      console.log(contract);
+      let goalReached = await contract.methods.checkGoalReached(campaignID).call();
 
-      let campaign = await contract.methods.getCampaign(campaignID).call();
-
-      return campaign;
+      return goalReached;
     },
   };
 }
 
-export default ListCampaignWeb3UseCase;
+export default CheckGoalReachedUseCase;
