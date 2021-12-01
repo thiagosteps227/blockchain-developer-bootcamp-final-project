@@ -121,7 +121,7 @@ export default function Project() {
           </Box>
         </Flex>
       </Box>
-      <Form className="create-form">
+      {/* <Form className="create-form">
         <Form.Field>
           <label>Total Amount</label>
           <input
@@ -139,7 +139,7 @@ export default function Project() {
         <Button onClick={createProject} type="submit">
           Create a new campaign!
         </Button>
-      </Form>
+      </Form> */}
 
       <Box m="15px 0 30px 0" p="0 10px">
         <Flex
@@ -149,7 +149,7 @@ export default function Project() {
           alignItems="center"
         >
           <Text fontWeight="bold" color="tussock">
-            1 BNB = $356.10
+            1 BNB = $640
           </Text>
         </Flex>
         <Text fontWeight="bold" mt="10px" fontSize="20px">
