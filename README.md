@@ -8,8 +8,17 @@ The frontend can be accessed from the dir--> crowdfunding-frontend.
 
 Deployed address and deployment information are contained in: truffle-config.json
 
-**Install** npm install
+**Install** 
+npm install
 
-**To start the project in the crowdfunding-frontend folder** npm run start
+
+**Start the project --> crowdfunding-frontend folder** 
+npm run start
+
+
+
+**Run tests** 
+ganache-cli
+truffle test
 
 
