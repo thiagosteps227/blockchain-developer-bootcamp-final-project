@@ -1,6 +1,8 @@
 const { assert } = require("chai");
 const truffleAssert = require("truffle-assertions");
+
 const BN = web3.utils.BN;
+
 
 const Crowdfunding = artifacts.require("./Crowdfunding.sol");
 
@@ -23,11 +25,7 @@ contract("Crowdfunding", (accounts) => {
     truffleAssert.eventEmitted(tx, "CampaignCreated", (ev) => {
       return ev.campaignID.toNumber() === 0;
     });
-    console.log("tx " + tx);
-    //let result = await truffleAssert.createTransactionResult(crowdfunding, tx.transactionHash);
-    //truffleAssert.eventEmitted(result, 'CampaignCreated');
-    //console.log(campaignID);
-    //assert.Equal(campaignID, null);
+   
   });
 
   it("Should be able to create a contribution", async () => {
@@ -49,6 +47,25 @@ contract("Crowdfunding", (accounts) => {
         return ev.campaignID == 0;
     });
 
+  });
+
+  it("Should be able to get campaign information", async () => {
+    const crowdfunding = await Crowdfunding.new();
+
+    const beneficiary = accounts[0];
+    const fundingGoal = "10";
+    await crowdfunding.newCampaign(beneficiary,fundingGoal);
+    
+    
+    let funder = accounts[1];
+    let amount = 1;
+    await crowdfunding.contribute(0, { from: funder, value: amount });
+
+    const address = await crowdfunding.address;
+    const campaign = await crowdfunding.getCampaign(0);
+
+    assert.notEqual(campaign.amount, 0);
+    assert.notEqual(campaign.fundingGoal, 0);
   });
 
 });
