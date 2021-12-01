@@ -4,7 +4,10 @@ Final project for Consensys blockchain bootcamp
 This project is a Crowfunding developed with a Smart Contract deployed to the BSC testenet.
 The main idrectory contain the Blockchain part of the project.
 
-The frontend can be accessed from the dir--> crowdfunding-frontend.
+**Frontend**
+Designed with React.js using javascript.
+The frontend can be accessed in the Dir-> crowdfunding-frontend.
+
 
 Deployed address and deployment information are contained in: truffle-config.json
 
@@ -18,6 +21,8 @@ npm run start
 
 
 **Run tests** 
+In the main directory:
+
 ganache-cli
 truffle test
 
