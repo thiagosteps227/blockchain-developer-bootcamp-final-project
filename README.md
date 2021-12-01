@@ -24,6 +24,7 @@ npm run start
 In the main directory:
 
 ganache-cli
+
 truffle test
 
 
