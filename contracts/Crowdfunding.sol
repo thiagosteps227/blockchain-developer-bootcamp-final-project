@@ -109,4 +109,12 @@ contract Crowdfunding {
         numFunders = campaign.numFunders;
         amount = campaign.amount;
     }
+
+    function getNumTotalCampaigns()
+        public
+        view
+        returns (uint256)
+    {
+        return numCampaigns;
+    }
 }

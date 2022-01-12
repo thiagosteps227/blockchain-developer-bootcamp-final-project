@@ -13,9 +13,9 @@ const metamaskLogin = async () => {
 
 metamaskLogin();
 
-function ListCampaignWeb3UseCase() {
+function GetTotalProjectsUseCase() {
   return {
-    getCampaign: async (campaignID, callback) => {
+    getTotalCampaigns: async (callback) => {
       const provider = await detectEthereumProvider();
 
       let web3 = new Web3(provider);
@@ -25,11 +25,11 @@ function ListCampaignWeb3UseCase() {
         config.crowdfundingAddress
       );
 
-      let campaign = await contract.methods.getCampaign(campaignID).call();
+      let totalOfCampaigns = await contract.methods.getNumTotalCampaigns().call();
 
-      return campaign;
+      return totalOfCampaigns;
     },
   };
 }
 
-export default ListCampaignWeb3UseCase;
+export default GetTotalProjectsUseCase;

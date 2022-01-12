@@ -17,6 +17,7 @@ import CheckGoalReachedUseCase from "../web3/checkGoalReached/CheckGoalReachedUs
 import source from "../images/childrenproject.png";
 
 import Web3 from "web3";
+import GetTotalProjectsUseCase from "../web3/createProject/GetTotalProjectsUseCase";
 
 const toWei = Web3.utils.toWei;
 const fromWei = Web3.utils.fromWei;
@@ -47,6 +48,10 @@ export default function Project() {
     console.log(lastName);
     console.log(checkbox); //
   };
+
+  //TODO
+  // be able to create a campaign again, so I can test the functionality 
+  //and display all the campaigns available in the blockchain
   const createProject = () => {
     console.log("Amount donated -> " + goalValue);
     setValue(goalValue);
@@ -73,7 +78,13 @@ export default function Project() {
     })();
   }, [1]);
 
-  console.log(goalReached);
+  //to get the total num of campaigns
+  useEffect(() => {
+    (async () => {
+      const totalNumOfCampaigns = await GetTotalProjectsUseCase().getNumTotalCampaigns();
+      console.log(totalNumOfCampaigns);
+    })();
+  }, [0]);
 
   const campaignGoalReached = goalReached
     ? "Goal reached! Thanks for your support"

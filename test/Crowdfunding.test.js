@@ -68,5 +68,21 @@ contract("Crowdfunding", (accounts) => {
     assert.notEqual(campaign.fundingGoal, 0);
   });
 
+  it("Should be able to get total number of campaigns", async () => {
+    const crowdfunding = await Crowdfunding.new();
+
+    const beneficiary = accounts[0];
+    const fundingGoal = "10";
+    await crowdfunding.newCampaign(beneficiary,fundingGoal);
+
+    const newFundingGoal = "15";
+    await crowdfunding.newCampaign(beneficiary,newFundingGoal);
+    
+    const numTotalCampaigns = await crowdfunding.getNumTotalCampaigns();
+
+    assert.strictEqual(numTotalCampaigns.toNumber(), 2);
+  
+  });
+
 });
 
