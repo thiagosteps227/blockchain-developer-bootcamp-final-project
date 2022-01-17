@@ -16,11 +16,14 @@ import FundingCampaignUseCase from "../web3/fundingCampaign/FundingCampaignUseCa
 import CheckGoalReachedUseCase from "../web3/checkGoalReached/CheckGoalReachedUseCase";
 import source from "../images/childrenproject.png";
 
+import ipfs from 'ipfs-http-client';
+
 import Web3 from "web3";
 import GetTotalProjectsUseCase from "../web3/createProject/GetTotalProjectsUseCase";
 
 const toWei = Web3.utils.toWei;
 const fromWei = Web3.utils.fromWei;
+
 
 export default function Project() {
   // let campaign = {
@@ -29,7 +32,7 @@ export default function Project() {
   //   goal
   // };
 
-  const [goalValue, setValue] = useState("");
+  const [goalValue, setGoalValue] = useState("");
   const [fundValue, setFundValue] = useState("");
   const [lastName, setLastName] = useState("");
   const [checkbox, setCheckbox] = useState(false);
@@ -54,7 +57,7 @@ export default function Project() {
   //and display all the campaigns available in the blockchain
   const createProject = () => {
     console.log("Amount donated -> " + goalValue);
-    setValue(goalValue);
+    setGoalValue(goalValue);
     CreateProjectUseCase().create(goalValue.toString());
   };
 
@@ -81,13 +84,44 @@ export default function Project() {
   //to get the total num of campaigns
   useEffect(() => {
     (async () => {
-      const totalNumOfCampaigns = await GetTotalProjectsUseCase().getNumTotalCampaigns();
+      const totalNumOfCampaigns = await GetTotalProjectsUseCase().getTotalCampaigns();
       console.log(totalNumOfCampaigns);
     })();
   }, [0]);
 
+  let campaignList;
+  let campaigns = [];
+  
+  useEffect(() => {
+    (async () => {
+      
+      const totalNumOfCampaigns = await GetTotalProjectsUseCase().getTotalCampaigns();
+      console.log(totalNumOfCampaigns);
+        if (totalNumOfCampaigns > 0) {
+
+          for (let i = 0; i < totalNumOfCampaigns; i++) {
+            let campaign = await ListCampaignWeb3UseCase().getCampaign(i);
+            console.log(campaign);
+           
+
+          }
+        }
+      }
+    )();
+  }, [0]);
+
+  
+  console.log(campaigns);
+
+  const imageCid = 'QmRNVQGpRCcHoJZoc7wHyWipkYbWBRK25kXnjVQzbM8YT5';
+  //https://ipfs.io/ipfs/QmRNVQGpRCcHoJZoc7wHyWipkYbWBRK25kXnjVQzbM8YT5?filename=childrenproject.png
+  const image = "https://ipfs.io/ipfs/QmRNVQGpRCcHoJZoc7wHyWipkYbWBRK25kXnjVQzbM8YT5?filename=childrenproject.png"
+  //const image = `ipfs.io/ipfs/${imageCid}`
+
+
+
   const campaignGoalReached = goalReached
-    ? "Goal reached! Thanks for your support"
+    ? "Yes! Thanks for your support"
     : "Not yet, keep donating!";
 
   console.log(campaign);
@@ -109,7 +143,7 @@ export default function Project() {
           backgroundSize="cover"
           filter="brightness(80%)"
           objectFit="cover"
-          src={source}
+          src={image}
         />
         <Flex justifyContent="space-between">
           <Box flex="2" maxWidth="800px" mr="50px">
@@ -131,6 +165,36 @@ export default function Project() {
             </Box>
           </Box>
         </Flex>
+
+        <Flex mt="30px" justifyContent="space-between">
+          <Form className="create-form">
+            <Form.Field>
+              <label>Set a goal for you new campaign</label>
+              <input
+                style={{ width: "200px" }}
+                placeholder="Funding Amount"
+                style={{ width: "200px" }}
+                placeholder="Set a goal here"
+                onChange={(e) => setGoalValue(e.target.value)}
+              />
+            </Form.Field>
+          </Form>
+          <Button
+            backgroundColor="tussock"
+            color="white"
+            _hover={{
+              background: "tussock",
+              opacity: "0.8",
+              _disabled: { opacity: "0.6" },
+            }}
+            isLoading={"loading"}
+            loadingText="Talking to your wallet..."
+            type="submit"
+            onClick={() => createProject()}
+          >
+            Create a Campaign
+          </Button>
+        </Flex>
       </Box>
       {/* <Form className="create-form">
         <Form.Field>
@@ -151,6 +215,7 @@ export default function Project() {
           Create a new campaign!
         </Button>
       </Form> */}
+
 
       <Box m="15px 0 30px 0" p="0 10px">
         <Flex
@@ -213,6 +278,7 @@ export default function Project() {
             Fund a Campaign
           </Button>
         </Flex>
+
       </Box>
     </div>
   );

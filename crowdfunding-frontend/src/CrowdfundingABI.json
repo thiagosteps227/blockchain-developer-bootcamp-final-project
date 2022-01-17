@@ -173,23 +173,38 @@
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getNumTotalCampaigns",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"CampaignCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"funder\",\"type\":\"address\"}],\"name\":\"Contribution\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"GoalReached\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"checkGoalReached\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"reached\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"contribute\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"getBeneficiary\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"getCampaign\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"fundingGoal\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"numFunders\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"getCampaignAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"fundingGoal\",\"type\":\"uint256\"}],\"name\":\"newCampaign\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Crowdfunding.sol\":\"Crowdfunding\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Crowdfunding.sol\":{\"keccak256\":\"0x430e01ceed304ec7ec01a6293220e661b0d0c84f94f88ad7159024a14dc5e474\",\"urls\":[\"bzz-raw://15c7a9da79bfb49f7f403fb9c0ba7ea2d8ed1ae9ca27100f5f8ca77c36d2b3ee\",\"dweb:/ipfs/QmVabBJpC8ysHMFvr2rHhXS974Hs5Q6pam1pRNe6oS4i8E\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506109d6806100206000396000f3fe6080604052600436106100555760003560e01c8063296c10f41461005a578063302df083146100a95780635598f8cc146101245780635b2329d4146101b4578063c1cbbca714610207578063f7572cf314610235575b600080fd5b34801561006657600080fd5b506100936004803603602081101561007d57600080fd5b8101908080359060200190929190505050610290565b6040518082815260200191505060405180910390f35b3480156100b557600080fd5b506100e2600480360360208110156100cc57600080fd5b8101908080359060200190929190505050610345565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561013057600080fd5b5061015d6004803603602081101561014757600080fd5b81019080803590602001909291905050506103fa565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b3480156101c057600080fd5b506101ed600480360360208110156101d757600080fd5b81019080803590602001909291905050506104ca565b604051808215151515815260200191505060405180910390f35b6102336004803603602081101561021d57600080fd5b81019080803590602001909291905050506105bd565b005b34801561024157600080fd5b5061028e6004803603604081101561025857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610840565b005b600061029a61095c565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060800151915050919050565b600061034f61095c565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060200151915050919050565b60008060008061040861095c565b600260008781526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016002820154815260200160038201548152602001600482015481525050905080602001519450806040015193508060600151925080608001519150509193509193565b6000806002600084815260200190815260200160002090508060020154816004015410156104fc5760009150506105b8565b600081600401549050600082600401819055508160010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f19350505050158015610579573d6000803e3d6000fd5b507ffbfd8ab7c24300fa9888cd721c8565a7da56759384781283684dcf7c7c4a846b846040518082815260200191505060405180910390a16001925050505b919050565b600073ffffffffffffffffffffffffffffffffffffffff1660008083815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16141561077057600060026000838152602001908152602001600020905060405180604001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481525060008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015590505034816004016000828254019250508190555060018160030160008282540192505081905550505b60006002600083815260200190815260200160002090503460008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825401925050819055503481600401600082825401925050819055503373ffffffffffffffffffffffffffffffffffffffff167f26ca392be7e3d9d0c0634fbc0457971d6ddcd123b3efb5ccaa0af7c33f4225c660405160405180910390a25050565b600080905060006001600081548092919060010191905055905060006040518060a001604052808381526020018673ffffffffffffffffffffffffffffffffffffffff16815260200185815260200182815260200184815250600260008481526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040820151816002015560608201518160030155608082015181600401559050507fbc0a5edd152fa5b886dcae82c5c109d113708653b4b9c0224549ccdf715af94e826040518082815260200191505060405180910390a15050505050565b6040518060a0016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a723158203531632996e1bad13ddb685fac7cda7922639fb33d5a24af00a460cef3d1f33564736f6c63430005100032",
-  "deployedBytecode": "0x6080604052600436106100555760003560e01c8063296c10f41461005a578063302df083146100a95780635598f8cc146101245780635b2329d4146101b4578063c1cbbca714610207578063f7572cf314610235575b600080fd5b34801561006657600080fd5b506100936004803603602081101561007d57600080fd5b8101908080359060200190929190505050610290565b6040518082815260200191505060405180910390f35b3480156100b557600080fd5b506100e2600480360360208110156100cc57600080fd5b8101908080359060200190929190505050610345565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561013057600080fd5b5061015d6004803603602081101561014757600080fd5b81019080803590602001909291905050506103fa565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b3480156101c057600080fd5b506101ed600480360360208110156101d757600080fd5b81019080803590602001909291905050506104ca565b604051808215151515815260200191505060405180910390f35b6102336004803603602081101561021d57600080fd5b81019080803590602001909291905050506105bd565b005b34801561024157600080fd5b5061028e6004803603604081101561025857600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610840565b005b600061029a61095c565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060800151915050919050565b600061034f61095c565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060200151915050919050565b60008060008061040861095c565b600260008781526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016002820154815260200160038201548152602001600482015481525050905080602001519450806040015193508060600151925080608001519150509193509193565b6000806002600084815260200190815260200160002090508060020154816004015410156104fc5760009150506105b8565b600081600401549050600082600401819055508160010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f19350505050158015610579573d6000803e3d6000fd5b507ffbfd8ab7c24300fa9888cd721c8565a7da56759384781283684dcf7c7c4a846b846040518082815260200191505060405180910390a16001925050505b919050565b600073ffffffffffffffffffffffffffffffffffffffff1660008083815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16141561077057600060026000838152602001908152602001600020905060405180604001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481525060008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015590505034816004016000828254019250508190555060018160030160008282540192505081905550505b60006002600083815260200190815260200160002090503460008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825401925050819055503481600401600082825401925050819055503373ffffffffffffffffffffffffffffffffffffffff167f26ca392be7e3d9d0c0634fbc0457971d6ddcd123b3efb5ccaa0af7c33f4225c660405160405180910390a25050565b600080905060006001600081548092919060010191905055905060006040518060a001604052808381526020018673ffffffffffffffffffffffffffffffffffffffff16815260200185815260200182815260200184815250600260008481526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040820151816002015560608201518160030155608082015181600401559050507fbc0a5edd152fa5b886dcae82c5c109d113708653b4b9c0224549ccdf715af94e826040518082815260200191505060405180910390a15050505050565b6040518060a0016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a723158203531632996e1bad13ddb685fac7cda7922639fb33d5a24af00a460cef3d1f33564736f6c63430005100032",
-  "sourceMap": "202:2948:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;202:2948:0;;;;;;;",
-  "deployedSourceMap": "202:2948:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2534:211;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2534:211:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2534:211:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2305:223;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2305:223:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2305:223:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;2751:397;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2751:397:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2751:397:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1936:363;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1936:363:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1936:363:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1324:606;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1324:606:0;;;;;;;;;;;;;;;;;:::i;:::-;;918:400;;8:9:-1;5:2;;;30:1;27;20:12;5:2;918:400:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;918:400:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;2534:211;2626:14;2656:24;;:::i;:::-;2683:9;:21;2693:10;2683:21;;;;;;;;;;;2656:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2723:8;:15;;;2714:24;;2534:211;;;;:::o;2305:223::-;2394:19;2429:24;;:::i;:::-;2456:9;:21;2466:10;2456:21;;;;;;;;;;;2429:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2501:8;:20;;;2487:34;;2305:223;;;;:::o;2751:397::-;2837:19;2858;2879:18;2899:14;2929:24;;:::i;:::-;2956:9;:21;2966:10;2956:21;;;;;;;;;;;2929:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3001:8;:20;;;2987:34;;3045:8;:20;;;3031:34;;3088:8;:19;;;3075:32;;3126:8;:15;;;3117:24;;2751:397;;;;;;:::o;1936:363::-;2014:12;2042:18;2063:9;:21;2073:10;2063:21;;;;;;;;;;;2042:42;;2109:1;:13;;;2098:1;:8;;;:24;2094:42;;;2131:5;2124:12;;;;;2094:42;2146:14;2163:1;:8;;;2146:25;;2192:1;2181;:8;;:12;;;;2203:1;:13;;;;;;;;;;;;:22;;:30;2226:6;2203:30;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2203:30:0;2248:23;2260:10;2248:23;;;;;;;;;;;;;;;;;;2288:4;2281:11;;;;1936:363;;;;:::o;1324:606::-;1449:1;1393:58;;:15;:27;1409:10;1393:27;;;;;;;;;;;:39;1421:10;1393:39;;;;;;;;;;;;;;;:44;;;;;;;;;;;;:58;;;1389:328;;;1467:18;1488:9;:21;1498:10;1488:21;;;;;;;;;;;1467:42;;1565:75;;;;;;;;1589:10;1565:75;;;;;;1617:9;1565:75;;;1523:15;:27;1539:10;1523:27;;;;;;;;;;;:39;1551:10;1523:39;;;;;;;;;;;;;;;:117;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1666:9;1654:1;:8;;;:21;;;;;;;;;;;1705:1;1689;:12;;;:17;;;;;;;;;;;1389:328;;1727:25;1755:9;:21;1765:10;1755:21;;;;;;;;;;;1727:49;;1836:9;1786:15;:27;1802:10;1786:27;;;;;;;;;;;:39;1814:10;1786:39;;;;;;;;;;;;;;;:46;;;:59;;;;;;;;;;;1874:9;1855:8;:15;;;:28;;;;;;;;;;;1912:10;1899:24;;;;;;;;;;;;1324:606;;:::o;918:400::-;1006:14;1023:1;1006:18;;1034;1055:12;;:14;;;;;;;;;;;;1034:35;;1079:18;1132:136;;;;;;;;1154:10;1132:136;;;;1178:11;1132:136;;;;;;1203:11;1132:136;;;;1228:10;1132:136;;;;1252:6;1132:136;;;1108:9;:21;1118:10;1108:21;;;;;;;;;;;:160;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1284:27;1300:10;1284:27;;;;;;;;;;;;;;;;;;918:400;;;;;:::o;202:2948::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity >=0.4.0 <0.9.0;\n\n// Defines a new type with two fields.\n// Declaring a struct outside of a contract allows\n// it to be shared by multiple contracts.\n// Here, this is not really needed.\n\ncontract Crowdfunding {\n    // Structs can also be defined inside contracts, which makes them\n    // visible only there and in derived contracts.\n\n    struct Funder {\n        address addr;\n        uint256 amount;\n    }\n    struct Campaign {\n        uint256 campaignID;\n        address payable beneficiary;\n        uint256 fundingGoal;\n        uint256 numFunders;\n        uint256 amount;\n    }\n\n    //uint256 numCampaignPerFunders;\n    mapping(uint256 => mapping(address => Funder)) campaignFunders;\n\n    uint256 numCampaigns;\n    mapping(uint256 => Campaign) campaigns;\n\n    event CampaignCreated(uint256 campaignID);\n\n    event Contribution(address indexed funder);\n\n    event GoalReached(uint256 campaignID);\n\n    function newCampaign(address payable beneficiary, uint256 fundingGoal) public {\n        uint256 amount = 0;\n        uint256 campaignID = numCampaigns++;\n        uint256 numFunders;\n\n        campaigns[campaignID] = Campaign(\n            campaignID,\n            beneficiary,\n            fundingGoal,\n            numFunders,\n            amount\n        );\n\n        emit CampaignCreated(campaignID);\n    }\n\n    function contribute(uint256 campaignID) public payable {\n        if (campaignFunders[campaignID][msg.sender].addr == address(0)) {\n            Campaign storage c = campaigns[campaignID];\n            campaignFunders[campaignID][msg.sender] = Funder(\n                msg.sender,\n                msg.value\n            );\n            c.amount += msg.value;\n            c.numFunders += 1;\n        }\n\n        Campaign storage campaign = campaigns[campaignID];\n        campaignFunders[campaignID][msg.sender].amount += msg.value;\n        campaign.amount += msg.value;\n\n        emit Contribution(msg.sender);\n    }\n\n    function checkGoalReached(uint256 campaignID)\n        public\n        returns (bool reached)\n    {\n        Campaign storage c = campaigns[campaignID];\n        if (c.amount < c.fundingGoal) return false;\n        uint256 amount = c.amount;\n        c.amount = 0;\n        c.beneficiary.transfer(amount);\n        emit GoalReached(campaignID);\n        return true;\n    }\n\n    function getBeneficiary(uint256 campaignID)\n        public\n        view\n        returns (address beneficiary)\n    {\n        Campaign memory campaign = campaigns[campaignID];\n        beneficiary = campaign.beneficiary;\n    }\n\n    function getCampaignAmount(uint256 campaignID)\n        public\n        view\n        returns (uint256 amount)\n    {\n        Campaign memory campaign = campaigns[campaignID];\n        amount = campaign.amount;\n    }\n\n    function getCampaign(uint256 campaignID)\n        public\n        view\n        returns (address beneficiary, uint256 fundingGoal, uint256 numFunders, uint256 amount)\n    {\n        Campaign memory campaign = campaigns[campaignID];\n        beneficiary = campaign.beneficiary;\n        fundingGoal = campaign.fundingGoal;\n        numFunders = campaign.numFunders;\n        amount = campaign.amount;\n    }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"CampaignCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"funder\",\"type\":\"address\"}],\"name\":\"Contribution\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"GoalReached\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"checkGoalReached\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"reached\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"contribute\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"getBeneficiary\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"getCampaign\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"fundingGoal\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"numFunders\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"campaignID\",\"type\":\"uint256\"}],\"name\":\"getCampaignAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getNumTotalCampaigns\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"fundingGoal\",\"type\":\"uint256\"}],\"name\":\"newCampaign\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Crowdfunding.sol\":\"Crowdfunding\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Crowdfunding.sol\":{\"keccak256\":\"0x1b0e12e87bf9a79ced46bd496914773b0ffae8a89ed7669cae824e3b386c3993\",\"urls\":[\"bzz-raw://fd06eb3c83475d692cbb876e95dff12fdad767ac624426d1327759a4cbae0773\",\"dweb:/ipfs/QmXSDvRKfykQCMz9bLGLefkWyZZHXUsSuvdXNY3cCxWWnv\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610a26806100206000396000f3fe6080604052600436106100705760003560e01c80635b2329d41161004e5780635b2329d4146101cf578063603415be14610222578063c1cbbca71461024d578063f7572cf31461027b57610070565b8063296c10f414610075578063302df083146100c45780635598f8cc1461013f575b600080fd5b34801561008157600080fd5b506100ae6004803603602081101561009857600080fd5b81019080803590602001909291905050506102d6565b6040518082815260200191505060405180910390f35b3480156100d057600080fd5b506100fd600480360360208110156100e757600080fd5b810190808035906020019092919050505061038b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014b57600080fd5b506101786004803603602081101561016257600080fd5b8101908080359060200190929190505050610440565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b3480156101db57600080fd5b50610208600480360360208110156101f257600080fd5b8101908080359060200190929190505050610510565b604051808215151515815260200191505060405180910390f35b34801561022e57600080fd5b50610237610603565b6040518082815260200191505060405180910390f35b6102796004803603602081101561026357600080fd5b810190808035906020019092919050505061060d565b005b34801561028757600080fd5b506102d46004803603604081101561029e57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610890565b005b60006102e06109ac565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060800151915050919050565b60006103956109ac565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060200151915050919050565b60008060008061044e6109ac565b600260008781526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016002820154815260200160038201548152602001600482015481525050905080602001519450806040015193508060600151925080608001519150509193509193565b6000806002600084815260200190815260200160002090508060020154816004015410156105425760009150506105fe565b600081600401549050600082600401819055508160010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f193505050501580156105bf573d6000803e3d6000fd5b507ffbfd8ab7c24300fa9888cd721c8565a7da56759384781283684dcf7c7c4a846b846040518082815260200191505060405180910390a16001925050505b919050565b6000600154905090565b600073ffffffffffffffffffffffffffffffffffffffff1660008083815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614156107c057600060026000838152602001908152602001600020905060405180604001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481525060008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015590505034816004016000828254019250508190555060018160030160008282540192505081905550505b60006002600083815260200190815260200160002090503460008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825401925050819055503481600401600082825401925050819055503373ffffffffffffffffffffffffffffffffffffffff167f26ca392be7e3d9d0c0634fbc0457971d6ddcd123b3efb5ccaa0af7c33f4225c660405160405180910390a25050565b600080905060006001600081548092919060010191905055905060006040518060a001604052808381526020018673ffffffffffffffffffffffffffffffffffffffff16815260200185815260200182815260200184815250600260008481526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040820151816002015560608201518160030155608082015181600401559050507fbc0a5edd152fa5b886dcae82c5c109d113708653b4b9c0224549ccdf715af94e826040518082815260200191505060405180910390a15050505050565b6040518060a0016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a723158204b510f9153b26e3d1c84a102c7007de387e376dde086f1fd09d2069e07e38ddd64736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600436106100705760003560e01c80635b2329d41161004e5780635b2329d4146101cf578063603415be14610222578063c1cbbca71461024d578063f7572cf31461027b57610070565b8063296c10f414610075578063302df083146100c45780635598f8cc1461013f575b600080fd5b34801561008157600080fd5b506100ae6004803603602081101561009857600080fd5b81019080803590602001909291905050506102d6565b6040518082815260200191505060405180910390f35b3480156100d057600080fd5b506100fd600480360360208110156100e757600080fd5b810190808035906020019092919050505061038b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014b57600080fd5b506101786004803603602081101561016257600080fd5b8101908080359060200190929190505050610440565b604051808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815260200182815260200194505050505060405180910390f35b3480156101db57600080fd5b50610208600480360360208110156101f257600080fd5b8101908080359060200190929190505050610510565b604051808215151515815260200191505060405180910390f35b34801561022e57600080fd5b50610237610603565b6040518082815260200191505060405180910390f35b6102796004803603602081101561026357600080fd5b810190808035906020019092919050505061060d565b005b34801561028757600080fd5b506102d46004803603604081101561029e57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610890565b005b60006102e06109ac565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060800151915050919050565b60006103956109ac565b600260008481526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282015481526020016003820154815260200160048201548152505090508060200151915050919050565b60008060008061044e6109ac565b600260008781526020019081526020016000206040518060a0016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016002820154815260200160038201548152602001600482015481525050905080602001519450806040015193508060600151925080608001519150509193509193565b6000806002600084815260200190815260200160002090508060020154816004015410156105425760009150506105fe565b600081600401549050600082600401819055508160010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f193505050501580156105bf573d6000803e3d6000fd5b507ffbfd8ab7c24300fa9888cd721c8565a7da56759384781283684dcf7c7c4a846b846040518082815260200191505060405180910390a16001925050505b919050565b6000600154905090565b600073ffffffffffffffffffffffffffffffffffffffff1660008083815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614156107c057600060026000838152602001908152602001600020905060405180604001604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481525060008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015590505034816004016000828254019250508190555060018160030160008282540192505081905550505b60006002600083815260200190815260200160002090503460008084815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101600082825401925050819055503481600401600082825401925050819055503373ffffffffffffffffffffffffffffffffffffffff167f26ca392be7e3d9d0c0634fbc0457971d6ddcd123b3efb5ccaa0af7c33f4225c660405160405180910390a25050565b600080905060006001600081548092919060010191905055905060006040518060a001604052808381526020018673ffffffffffffffffffffffffffffffffffffffff16815260200185815260200182815260200184815250600260008481526020019081526020016000206000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040820151816002015560608201518160030155608082015181600401559050507fbc0a5edd152fa5b886dcae82c5c109d113708653b4b9c0224549ccdf715af94e826040518082815260200191505060405180910390a15050505050565b6040518060a0016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff168152602001600081526020016000815260200160008152509056fea265627a7a723158204b510f9153b26e3d1c84a102c7007de387e376dde086f1fd09d2069e07e38ddd64736f6c63430005100032",
+  "sourceMap": "202:3080:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;202:3080:0;;;;;;;",
+  "deployedSourceMap": "202:3080:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2534:211;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2534:211:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2534:211:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2305:223;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2305:223:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2305:223:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;2751:397;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2751:397:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2751:397:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1936:363;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1936:363:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1936:363:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;3154:126;;8:9:-1;5:2;;;30:1;27;20:12;5:2;3154:126:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1324:606;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1324:606:0;;;;;;;;;;;;;;;;;:::i;:::-;;918:400;;8:9:-1;5:2;;;30:1;27;20:12;5:2;918:400:0;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;918:400:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;2534:211;2626:14;2656:24;;:::i;:::-;2683:9;:21;2693:10;2683:21;;;;;;;;;;;2656:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2723:8;:15;;;2714:24;;2534:211;;;;:::o;2305:223::-;2394:19;2429:24;;:::i;:::-;2456:9;:21;2466:10;2456:21;;;;;;;;;;;2429:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2501:8;:20;;;2487:34;;2305:223;;;;:::o;2751:397::-;2837:19;2858;2879:18;2899:14;2929:24;;:::i;:::-;2956:9;:21;2966:10;2956:21;;;;;;;;;;;2929:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3001:8;:20;;;2987:34;;3045:8;:20;;;3031:34;;3088:8;:19;;;3075:32;;3126:8;:15;;;3117:24;;2751:397;;;;;;:::o;1936:363::-;2014:12;2042:18;2063:9;:21;2073:10;2063:21;;;;;;;;;;;2042:42;;2109:1;:13;;;2098:1;:8;;;:24;2094:42;;;2131:5;2124:12;;;;;2094:42;2146:14;2163:1;:8;;;2146:25;;2192:1;2181;:8;;:12;;;;2203:1;:13;;;;;;;;;;;;:22;;:30;2226:6;2203:30;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;2203:30:0;2248:23;2260:10;2248:23;;;;;;;;;;;;;;;;;;2288:4;2281:11;;;;1936:363;;;;:::o;3154:126::-;3231:7;3261:12;;3254:19;;3154:126;:::o;1324:606::-;1449:1;1393:58;;:15;:27;1409:10;1393:27;;;;;;;;;;;:39;1421:10;1393:39;;;;;;;;;;;;;;;:44;;;;;;;;;;;;:58;;;1389:328;;;1467:18;1488:9;:21;1498:10;1488:21;;;;;;;;;;;1467:42;;1565:75;;;;;;;;1589:10;1565:75;;;;;;1617:9;1565:75;;;1523:15;:27;1539:10;1523:27;;;;;;;;;;;:39;1551:10;1523:39;;;;;;;;;;;;;;;:117;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1666:9;1654:1;:8;;;:21;;;;;;;;;;;1705:1;1689;:12;;;:17;;;;;;;;;;;1389:328;;1727:25;1755:9;:21;1765:10;1755:21;;;;;;;;;;;1727:49;;1836:9;1786:15;:27;1802:10;1786:27;;;;;;;;;;;:39;1814:10;1786:39;;;;;;;;;;;;;;;:46;;;:59;;;;;;;;;;;1874:9;1855:8;:15;;;:28;;;;;;;;;;;1912:10;1899:24;;;;;;;;;;;;1324:606;;:::o;918:400::-;1006:14;1023:1;1006:18;;1034;1055:12;;:14;;;;;;;;;;;;1034:35;;1079:18;1132:136;;;;;;;;1154:10;1132:136;;;;1178:11;1132:136;;;;;;1203:11;1132:136;;;;1228:10;1132:136;;;;1252:6;1132:136;;;1108:9;:21;1118:10;1108:21;;;;;;;;;;;:160;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1284:27;1300:10;1284:27;;;;;;;;;;;;;;;;;;918:400;;;;;:::o;202:3080::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.4.0 <0.9.0;\n\n// Defines a new type with two fields.\n// Declaring a struct outside of a contract allows\n// it to be shared by multiple contracts.\n// Here, this is not really needed.\n\ncontract Crowdfunding {\n    // Structs can also be defined inside contracts, which makes them\n    // visible only there and in derived contracts.\n\n    struct Funder {\n        address addr;\n        uint256 amount;\n    }\n    struct Campaign {\n        uint256 campaignID;\n        address payable beneficiary;\n        uint256 fundingGoal;\n        uint256 numFunders;\n        uint256 amount;\n    }\n\n    //uint256 numCampaignPerFunders;\n    mapping(uint256 => mapping(address => Funder)) campaignFunders;\n\n    uint256 numCampaigns;\n    mapping(uint256 => Campaign) campaigns;\n\n    event CampaignCreated(uint256 campaignID);\n\n    event Contribution(address indexed funder);\n\n    event GoalReached(uint256 campaignID);\n\n    function newCampaign(address payable beneficiary, uint256 fundingGoal) public {\n        uint256 amount = 0;\n        uint256 campaignID = numCampaigns++;\n        uint256 numFunders;\n\n        campaigns[campaignID] = Campaign(\n            campaignID,\n            beneficiary,\n            fundingGoal,\n            numFunders,\n            amount\n        );\n\n        emit CampaignCreated(campaignID);\n    }\n\n    function contribute(uint256 campaignID) public payable {\n        if (campaignFunders[campaignID][msg.sender].addr == address(0)) {\n            Campaign storage c = campaigns[campaignID];\n            campaignFunders[campaignID][msg.sender] = Funder(\n                msg.sender,\n                msg.value\n            );\n            c.amount += msg.value;\n            c.numFunders += 1;\n        }\n\n        Campaign storage campaign = campaigns[campaignID];\n        campaignFunders[campaignID][msg.sender].amount += msg.value;\n        campaign.amount += msg.value;\n\n        emit Contribution(msg.sender);\n    }\n\n    function checkGoalReached(uint256 campaignID)\n        public\n        returns (bool reached)\n    {\n        Campaign storage c = campaigns[campaignID];\n        if (c.amount < c.fundingGoal) return false;\n        uint256 amount = c.amount;\n        c.amount = 0;\n        c.beneficiary.transfer(amount);\n        emit GoalReached(campaignID);\n        return true;\n    }\n\n    function getBeneficiary(uint256 campaignID)\n        public\n        view\n        returns (address beneficiary)\n    {\n        Campaign memory campaign = campaigns[campaignID];\n        beneficiary = campaign.beneficiary;\n    }\n\n    function getCampaignAmount(uint256 campaignID)\n        public\n        view\n        returns (uint256 amount)\n    {\n        Campaign memory campaign = campaigns[campaignID];\n        amount = campaign.amount;\n    }\n\n    function getCampaign(uint256 campaignID)\n        public\n        view\n        returns (address beneficiary, uint256 fundingGoal, uint256 numFunders, uint256 amount)\n    {\n        Campaign memory campaign = campaigns[campaignID];\n        beneficiary = campaign.beneficiary;\n        fundingGoal = campaign.fundingGoal;\n        numFunders = campaign.numFunders;\n        amount = campaign.amount;\n    }\n\n    function getNumTotalCampaigns()\n        public\n        view\n        returns (uint256)\n    {\n        return numCampaigns;\n    }\n}\n",
   "sourcePath": "/home/thiagosteps227/blockchain-developer-bootcamp-final-project/contracts/Crowdfunding.sol",
   "ast": {
     "absolutePath": "project:/contracts/Crowdfunding.sol",
     "exportedSymbols": {
       "Crowdfunding": [
-        284
+        292
       ]
     },
-    "id": 285,
+    "id": 293,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -212,9 +227,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 284,
+        "id": 292,
         "linearizedBaseContracts": [
-          284
+          292
         ],
         "name": "Crowdfunding",
         "nodeType": "ContractDefinition",
@@ -279,7 +294,7 @@
             ],
             "name": "Funder",
             "nodeType": "StructDefinition",
-            "scope": 284,
+            "scope": 292,
             "src": "353:67:0",
             "visibility": "public"
           },
@@ -421,7 +436,7 @@
             ],
             "name": "Campaign",
             "nodeType": "StructDefinition",
-            "scope": 284,
+            "scope": 292,
             "src": "425:169:0",
             "visibility": "public"
           },
@@ -430,7 +445,7 @@
             "id": 23,
             "name": "campaignFunders",
             "nodeType": "VariableDeclaration",
-            "scope": 284,
+            "scope": 292,
             "src": "637:62:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -496,7 +511,7 @@
             "id": 25,
             "name": "numCampaigns",
             "nodeType": "VariableDeclaration",
-            "scope": 284,
+            "scope": 292,
             "src": "706:20:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -522,7 +537,7 @@
             "id": 29,
             "name": "campaigns",
             "nodeType": "VariableDeclaration",
-            "scope": 284,
+            "scope": 292,
             "src": "732:38:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1159,7 +1174,7 @@
               "parameters": [],
               "src": "996:0:0"
             },
-            "scope": 284,
+            "scope": 292,
             "src": "918:400:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1236,7 +1251,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 299,
+                            "referencedDeclaration": 307,
                             "src": "1421:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1492,7 +1507,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 299,
+                                "referencedDeclaration": 307,
                                 "src": "1551:3:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -1537,7 +1552,7 @@
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 299,
+                                  "referencedDeclaration": 307,
                                   "src": "1589:3:0",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_message",
@@ -1566,7 +1581,7 @@
                                   "name": "msg",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 299,
+                                  "referencedDeclaration": 307,
                                   "src": "1617:3:0",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_magic_message",
@@ -1681,7 +1696,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 299,
+                              "referencedDeclaration": 307,
                               "src": "1666:3:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1921,7 +1936,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 299,
+                            "referencedDeclaration": 307,
                             "src": "1814:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1977,7 +1992,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 299,
+                        "referencedDeclaration": 307,
                         "src": "1836:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -2055,7 +2070,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 299,
+                        "referencedDeclaration": 307,
                         "src": "1874:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -2098,7 +2113,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 299,
+                          "referencedDeclaration": 307,
                           "src": "1912:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2204,7 +2219,7 @@
               "parameters": [],
               "src": "1379:0:0"
             },
-            "scope": 284,
+            "scope": 292,
             "src": "1324:606:0",
             "stateMutability": "payable",
             "superFunction": null,
@@ -2772,7 +2787,7 @@
               ],
               "src": "2013:14:0"
             },
-            "scope": 284,
+            "scope": 292,
             "src": "1936:363:0",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -3000,7 +3015,7 @@
               ],
               "src": "2393:21:0"
             },
-            "scope": 284,
+            "scope": 292,
             "src": "2305:223:0",
             "stateMutability": "view",
             "superFunction": null,
@@ -3227,7 +3242,7 @@
               ],
               "src": "2625:16:0"
             },
-            "scope": 284,
+            "scope": 292,
             "src": "2534:211:0",
             "stateMutability": "view",
             "superFunction": null,
@@ -3719,25 +3734,104 @@
               ],
               "src": "2836:78:0"
             },
-            "scope": 284,
+            "scope": 292,
             "src": "2751:397:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 290,
+              "nodeType": "Block",
+              "src": "3244:36:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 288,
+                    "name": "numCampaigns",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 25,
+                    "src": "3261:12:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 287,
+                  "id": 289,
+                  "nodeType": "Return",
+                  "src": "3254:19:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 291,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getNumTotalCampaigns",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 284,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3183:2:0"
+            },
+            "returnParameters": {
+              "id": 287,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 286,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 291,
+                  "src": "3231:7:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 285,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3231:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3230:9:0"
+            },
+            "scope": 292,
+            "src": "3154:126:0",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 285,
-        "src": "202:2948:0"
+        "scope": 293,
+        "src": "202:3080:0"
       }
     ],
-    "src": "0:3151:0"
+    "src": "0:3283:0"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/Crowdfunding.sol",
       "exportedSymbols": {
         "Crowdfunding": [
-          284
+          292
         ]
       }
     },
@@ -3770,17 +3864,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            284
+            292
           ],
           "name": "Crowdfunding",
-          "scope": 285
+          "scope": 293
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "Crowdfunding.Funder",
               "name": "Funder",
-              "scope": 284,
+              "scope": 292,
               "visibility": "public"
             },
             "children": [
@@ -3846,7 +3940,7 @@
             "attributes": {
               "canonicalName": "Crowdfunding.Campaign",
               "name": "Campaign",
-              "scope": 284,
+              "scope": 292,
               "visibility": "public"
             },
             "children": [
@@ -3990,7 +4084,7 @@
             "attributes": {
               "constant": false,
               "name": "campaignFunders",
-              "scope": 284,
+              "scope": 292,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(uint256 => mapping(address => struct Crowdfunding.Funder))",
@@ -4056,7 +4150,7 @@
             "attributes": {
               "constant": false,
               "name": "numCampaigns",
-              "scope": 284,
+              "scope": 292,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -4082,7 +4176,7 @@
             "attributes": {
               "constant": false,
               "name": "campaigns",
-              "scope": 284,
+              "scope": 292,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(uint256 => struct Crowdfunding.Campaign)",
@@ -4274,7 +4368,7 @@
                 null
               ],
               "name": "newCampaign",
-              "scope": 284,
+              "scope": 292,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -4787,7 +4881,7 @@
                 null
               ],
               "name": "contribute",
-              "scope": 284,
+              "scope": 292,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "public"
@@ -4942,7 +5036,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 299,
+                                          "referencedDeclaration": 307,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -5195,7 +5289,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 299,
+                                              "referencedDeclaration": 307,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -5269,7 +5363,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 299,
+                                              "referencedDeclaration": 307,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -5300,7 +5394,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 299,
+                                              "referencedDeclaration": 307,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -5390,7 +5484,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 299,
+                                          "referencedDeclaration": 307,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -5673,7 +5767,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 299,
+                                          "referencedDeclaration": 307,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -5714,7 +5808,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 299,
+                                  "referencedDeclaration": 307,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -5799,7 +5893,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 299,
+                                  "referencedDeclaration": 307,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -5876,7 +5970,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 299,
+                                  "referencedDeclaration": 307,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -5919,7 +6013,7 @@
                 null
               ],
               "name": "checkGoalReached",
-              "scope": 284,
+              "scope": 292,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -6536,7 +6630,7 @@
                 null
               ],
               "name": "getBeneficiary",
-              "scope": 284,
+              "scope": 292,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -6782,7 +6876,7 @@
                 null
               ],
               "name": "getCampaignAmount",
-              "scope": 284,
+              "scope": 292,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -7027,7 +7121,7 @@
                 null
               ],
               "name": "getCampaign",
-              "scope": 284,
+              "scope": 292,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -7544,16 +7638,112 @@
             "id": 283,
             "name": "FunctionDefinition",
             "src": "2751:397:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getNumTotalCampaigns",
+              "scope": 292,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 284,
+                "name": "ParameterList",
+                "src": "3183:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 291,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 285,
+                        "name": "ElementaryTypeName",
+                        "src": "3231:7:0"
+                      }
+                    ],
+                    "id": 286,
+                    "name": "VariableDeclaration",
+                    "src": "3231:7:0"
+                  }
+                ],
+                "id": 287,
+                "name": "ParameterList",
+                "src": "3230:9:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 287
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 25,
+                          "type": "uint256",
+                          "value": "numCampaigns"
+                        },
+                        "id": 288,
+                        "name": "Identifier",
+                        "src": "3261:12:0"
+                      }
+                    ],
+                    "id": 289,
+                    "name": "Return",
+                    "src": "3254:19:0"
+                  }
+                ],
+                "id": 290,
+                "name": "Block",
+                "src": "3244:36:0"
+              }
+            ],
+            "id": 291,
+            "name": "FunctionDefinition",
+            "src": "3154:126:0"
           }
         ],
-        "id": 284,
+        "id": 292,
         "name": "ContractDefinition",
-        "src": "202:2948:0"
+        "src": "202:3080:0"
       }
     ],
-    "id": 285,
+    "id": 293,
     "name": "SourceUnit",
-    "src": "0:3151:0"
+    "src": "0:3283:0"
   },
   "compiler": {
     "name": "solc",
@@ -7563,8 +7753,8 @@
     "97": {
       "events": {},
       "links": {},
-      "address": "0xd9cfa32EB8949b583cd66d8001cAB15714b1473F",
-      "transactionHash": "0xc16021a3162c2a999c7dceff38638c64c9b251b760bd8c66a19497b7e0e31c22"
+      "address": "0x38c41934efEb086540f5Dab6E31E41E7fcA7B45E",
+      "transactionHash": "0x6994d1ca7cd4d3f80014e1375f1c99cf31edc38cafdcb07a80f1f21fd7c2d0a2"
     },
     "1635861608610": {
       "events": {},
@@ -7586,7 +7776,7 @@
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-29T11:22:36.863Z",
+  "updatedAt": "2022-01-12T11:08:31.177Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
