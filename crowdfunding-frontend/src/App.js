@@ -13,6 +13,7 @@ import { GlobalStyle } from './GlobalStyle';
 import Header from './components/Header';
 import BreadCrumb from './components/BreadCrumb';
 import Admin from './components/Admin';
+import Campaign from './components/Campaign';
 
 const App = () => (
   <Router>
@@ -20,6 +21,7 @@ const App = () => (
     <BreadCrumb/>
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/:campaignID" element={<Campaign />} />
       <Route path="/admin" element={<Admin />} />
     </Routes>
     <GlobalStyle />

@@ -27,6 +27,10 @@ function ListCampaignWeb3UseCase() {
 
       let campaign = await contract.methods.getCampaign(campaignID).call();
 
+      campaign = { ...campaign, id: campaignID };
+
+      console.log(campaign);
+
       return campaign;
     },
   };
