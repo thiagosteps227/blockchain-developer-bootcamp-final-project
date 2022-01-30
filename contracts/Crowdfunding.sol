@@ -104,6 +104,7 @@ contract Crowdfunding {
         returns (address beneficiary, uint256 fundingGoal, uint256 numFunders, uint256 amount)
     {
         Campaign memory campaign = campaigns[campaignID];
+        campaignID = campaign.campaignID;
         beneficiary = campaign.beneficiary;
         fundingGoal = campaign.fundingGoal;
         numFunders = campaign.numFunders;
