@@ -14,6 +14,7 @@ import Header from './components/Header';
 import BreadCrumb from './components/BreadCrumb';
 import Admin from './components/Admin';
 import Campaign from './components/Campaign';
+import Footer from './components/Footer';
 
 const App = () => (
   <Router>

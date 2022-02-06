@@ -8,7 +8,7 @@ export const useCampaignFetch = campaignID => {
   const [state, setState ] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError ] = useState(false);
-
+  const [goalReached, setGoalReached] = useState(false);
 
   useEffect(()=> {
     const fetchCampaign = async () => {
@@ -18,6 +18,7 @@ export const useCampaignFetch = campaignID => {
 
         const campaign = await ListCampaignWeb3UseCase().getCampaign(campaignID);
         const goalReached = await CheckGoalReachedUseCase().checkGoalReached(campaignID);
+        console.log(goalReached);
         console.log(campaign);
         //const movie = await API.fetchMovie(movieId);
         //const credits = await API.fetchCredits(movieId);
@@ -29,10 +30,9 @@ export const useCampaignFetch = campaignID => {
 
         setState({
           ...campaign,
-          goalReached: goalReached
-          // actors: credits.cast,
-          // directors
         })
+
+        setGoalReached(goalReached);
 
 
         setLoading(false)
@@ -45,5 +45,5 @@ export const useCampaignFetch = campaignID => {
   }, [campaignID])
 
 
-  return { state, loading, error }
+  return { state, goalReached, loading, error }
 }

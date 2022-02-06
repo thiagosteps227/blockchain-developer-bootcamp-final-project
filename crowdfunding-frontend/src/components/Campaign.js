@@ -41,23 +41,28 @@ const fromWei = Web3.utils.fromWei;
 
 const Campaign = () => {
 
-  
 
   const { campaignID } = useParams();
   const [fundValue, setFundValue] = useState("");
+  const [fundingLoading, setFundingLoading] = useState(false);
 
-  const { state: campaign, loading, error } = useCampaignFetch(campaignID);
+  const { state: campaign, goalReached,loading, error } = useCampaignFetch(campaignID);
+
+  const fundedFinished = () => {
+    setFundingLoading(false);
+    setFundValue("");
+  }
 
   const fundCampaign = (campaignID) => {
     console.log("Amount funded -> " + fundValue);
+    setFundingLoading(true);
     setFundValue(fundValue);
-    FundingCampaignUseCase().fund(campaignID, fundValue.toString());
+    FundingCampaignUseCase().fund(campaignID, fundValue.toString()).then(() => {fundedFinished()});
   };
 
   if(loading) return <Spinner />
   if(error) return <div>Something went wrong...</div>
 
-  
 
   return(
     <>
@@ -77,8 +82,8 @@ const Campaign = () => {
               border="2px solid rgba(227, 220, 11, 0.5)"
               margin="10px"
             >
-              <Heading>{"Joe Donator"}</Heading>
-              <Text color="black" opacity="0.8">{"Founder of NGO Kids Care "}</Text>
+              <Heading>Campaign number {`${campaign.id}`} dashboard</Heading>
+              <Text color="black" opacity="0.8">{"NGO Kids Care "}</Text>
             </Box>
           </Box>
         </Flex>
@@ -103,7 +108,7 @@ const Campaign = () => {
 
         <Text color="black" fontWeight="bold" mt="20px">
           {"Goal reached: "}
-          {}
+          {goalReached ? "Yes, thanks for you help!" : "Still need to fund!"}
         </Text>
 
         <Text color="black" fontWeight="bold" mt="10px" fontSize="20px">
@@ -118,7 +123,7 @@ const Campaign = () => {
           {campaign.numFunders}
         </Text>
 
-        <Flex mt="30px" justifyContent="space-around">
+        <Flex mt="30px" justifyContent="space-evenly">
           <Form className="create-form">
             <Form.Field>
               <label>Funding Amount</label>
@@ -126,6 +131,7 @@ const Campaign = () => {
                 style={{ width: "200px" }}
                 placeholder="Funding Amount"
                 style={{ width: "200px" }}
+                value={fundValue}
                 placeholder="Funding Amount"
                 onChange={(e) => setFundValue(e.target.value)}
               />
@@ -139,12 +145,12 @@ const Campaign = () => {
               opacity: "0.8",
               _disabled: { opacity: "0.6" },
             }}
-            isLoading={"loading"}
+            isLoading={loading}
             loadingText="Talking to your wallet..."
             type="submit"
             onClick={() => fundCampaign(campaignID)}
           >
-            Fund a Campaign
+            {fundingLoading ? "Funding..." : "Fund this campaign"}
           </Button>
         </Flex>
 

@@ -28,7 +28,6 @@ export default function FundingCampaignWeb3UseCase() {
       await contract.methods
         .contribute(campaignID)
         .send({ from: accounts[0], value: toWei(value) })
-        .then(() => callback(accounts[0], value))
         .catch((error) => console.log("Error in (fund) => " + error));
     },
   };

@@ -8,6 +8,7 @@ import { Image } from './Thumb.styles';
 
 const Thumb = ({ image, campaignID, clickable }) => (
   <div>
+    <h1>Campaign {`${campaignID}`}</h1>
     {clickable ? (
       <Link to={`/${campaignID}`}>
         <Image src={image} alt='movie-thumb'/>

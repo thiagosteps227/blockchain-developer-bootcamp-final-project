@@ -10,6 +10,7 @@ import source from "../images/crowdfunding.jpeg";
 //components
 import HeroImage from "./HeroImage";
 import Grid from "./Grid";
+import Footer from "./Footer";
 
 import Spinner from "./Spinner";
 import Thumb from "./Thumb";
@@ -26,107 +27,22 @@ import { useHomeFetch } from "../hooks/useHomeFetch";
 
 //image
 import NoImage from '../images/no_image.jpg';
-
-import ipfs from 'ipfs-http-client';
-
-import Web3 from "web3";
-import GetTotalProjectsUseCase from "../web3/createProject/GetTotalProjectsUseCase";
-
-const toWei = Web3.utils.toWei;
-const fromWei = Web3.utils.fromWei;
-
-
+import project0 from "../images/project0.jpg";
+import project1 from "../images/boy.jpeg";
+import project2 from "../images/boys.jpeg";
+import project3 from "../images/woodie.jpeg";
+import project4 from "../images/creche.jpeg";
+import project5 from "../images/horse.jpeg";
+import project6 from "../images/kids.jpeg";
+import project7 from "../images/mickey.jpeg";
 
 
 const Home = () => {
 
- 
-
-  const [goalValue, setGoalValue] = useState("");
-  const [fundValue, setFundValue] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [checkbox, setCheckbox] = useState(false);
-  const [campaign, setCampaign] = useState({
-    amount: "",
-    beneficiary: "",
-    fundingGoal: "",
-    numFunders: "",
-  });
-  const [goalReached, setGoalReached] = useState({
-    reached: "",
-  });
-
-  const postData = () => {
-    console.log(goalValue);
-    console.log(lastName);
-    console.log(checkbox); //
-  };
-
-  //TODO
-  // be able to create a campaign again, so I can test the functionality 
-  //and display all the campaigns available in the blockchain
-  const createProject = () => {
-    console.log("Amount donated -> " + goalValue);
-    setGoalValue(goalValue);
-    CreateProjectUseCase().create(goalValue.toString());
-  };
-
-  const fundCampaign = (campaignID) => {
-    console.log("Amount funded -> " + fundValue);
-    setFundValue(fundValue);
-    FundingCampaignUseCase().fund(campaignID, fundValue.toString());
-  };
-
-  useEffect(() => {
-    (async () => {
-      const campaign = await ListCampaignWeb3UseCase().getCampaign(0);
-      setCampaign(campaign);
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const goalReached = await CheckGoalReachedUseCase().checkGoalReached(0);
-      setGoalReached(goalReached);
-    })();
-  }, []);
-
-  //to get the total num of campaigns
-  let totalNumOfCampaigns;
-  useEffect(() => {
-    (async () => {
-      totalNumOfCampaigns = await GetTotalProjectsUseCase().getTotalCampaigns();
-      console.log(totalNumOfCampaigns);
-    })();
-  }, []);
-
-  let campaignList;
-  let campaigns = [];
-  
- 
-
-  
-  console.log(campaigns);
-
-  const imageCid = 'QmRNVQGpRCcHoJZoc7wHyWipkYbWBRK25kXnjVQzbM8YT5';
-  //https://ipfs.io/ipfs/QmRNVQGpRCcHoJZoc7wHyWipkYbWBRK25kXnjVQzbM8YT5?filename=childrenproject.png
-  //const image = "https://ipfs.io/ipfs/QmRNVQGpRCcHoJZoc7wHyWipkYbWBRK25kXnjVQzbM8YT5?filename=childrenproject.png"
-  //const image = `ipfs.io/ipfs/${imageCid}`
-
-
-
-  const campaignGoalReached = goalReached
-    ? "Yes! Thanks for your support"
-    : "Not yet, keep donating!";
-
-  console.log(campaign);
-  console.log(campaign.id);
-  console.log(campaign.amount);
-  console.log(campaign.beneficiary);
-  console.log(campaign.fundingGoal);
-  console.log(campaign.numFunders);
 
   const { state, loading, error} = useHomeFetch();
+
+  const images = [project0, project1, project2, project3, project4, project5, project6, project7];
 
   if(error) return <div>Something went wrong...</div>
  
@@ -145,13 +61,14 @@ const Home = () => {
           key={campaign.id}
           clickable
           image={
-            NoImage
+            images[campaign.id]
           }
           campaignID={campaign.id}
           />
         ))}
     </Grid>
     {loading && <Spinner/>}
+    <Footer />
       
     </>
   );
