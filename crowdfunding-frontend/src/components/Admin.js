@@ -22,15 +22,28 @@ import {
 const Admin = () => {
 
   const [goalValue, setGoalValue] = useState("");
+  const [creatingProject, setCreatingProject] = useState(false);
 
+  const campaignCreated = () => {
+    setCreatingProject(false);
+    setGoalValue("");
+  }
 
   // Able to create a campaign, so I can test the functionality 
   //and display all the campaigns available in the blockchain
   const createProject = () => {
-    console.log("Amount donated -> " + goalValue);
+    setCreatingProject(true);
+    console.log("Goal set -> " + goalValue);
     setGoalValue(goalValue);
-    CreateProjectUseCase().create(goalValue.toString()).then(() => {setGoalValue("")});
+    CreateProjectUseCase().create(goalValue.toString()).then(() => {campaignCreated()});
   };
+
+  const checkValidGoalValue = (goalValue) => {
+    if (isNaN(goalValue) || goalValue <= 0) {
+      return false;
+    }
+    return true;
+  }
 
   return (
     <>
@@ -74,8 +87,12 @@ const Admin = () => {
                 onChange={(e) => setGoalValue(e.target.value)}
               />
             </Form.Field>
+            {checkValidGoalValue(goalValue) ? 
+            <Button onClick={() => createProject()}>{creatingProject ? "Creating a campaign..." : "Create a campaign"}</Button> : 
+            <Button disabled>{creatingProject ? "Creating a campaign..." : "Create a campaign"}</Button>}
+            {isNaN(goalValue) ? <Text color="red">{"Type a valid number. Ex.: 0.01"}</Text> : ""}
           </Form>
-          <Button
+          {/* <Button
             backgroundColor="tussock"
             color="white"
             _hover={{
@@ -89,7 +106,7 @@ const Admin = () => {
             onClick={() => createProject()}
           >
             Create a Campaign
-          </Button>
+          </Button> */}
         </Flex>
       </Box>
       <Footer/>

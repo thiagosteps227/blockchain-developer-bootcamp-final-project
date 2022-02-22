@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 //components
 import Grid from './Grid';
@@ -45,6 +46,7 @@ const Campaign = () => {
   const { campaignID } = useParams();
   const [fundValue, setFundValue] = useState("");
   const [fundingLoading, setFundingLoading] = useState(false);
+  const { formState: { errors } } = useForm();
 
   const { state: campaign, goalReached,loading, error } = useCampaignFetch(campaignID);
 
@@ -60,6 +62,13 @@ const Campaign = () => {
     FundingCampaignUseCase().fund(campaignID, fundValue.toString()).then(() => {fundedFinished()});
   };
 
+  const checkValidFundValue = (fundValue) => {
+    if (isNaN(fundValue) || fundValue <= 0) {
+      return false;
+    }
+    return true;
+  }
+
   if(loading) return <Spinner />
   if(error) return <div>Something went wrong...</div>
 
@@ -69,7 +78,7 @@ const Campaign = () => {
     <Box>
         <Flex justifyContent="space-around">
           <Box flex="2" maxWidth="800px" mr="50px">
-            <Box mb="8" margin="5px">
+            <Box mb="8" margin="20px">
               <Heading fontSize="30px">Our Mission</Heading>
               <Text mt="35px" fontSize="20px" color="black">
                 {"Our mission is to allow children to have dreams!"}
@@ -80,9 +89,9 @@ const Campaign = () => {
             <Box
               p="20px"
               border="2px solid rgba(227, 220, 11, 0.5)"
-              margin="10px"
+              margin="20px"
             >
-              <Heading>Campaign number {`${campaign.id}`} dashboard</Heading>
+              <Heading >Campaign number {`${campaign.id}`} dashboard</Heading>
               <Text color="black" opacity="0.8">{"NGO Kids Care "}</Text>
             </Box>
           </Box>
@@ -136,22 +145,11 @@ const Campaign = () => {
                 onChange={(e) => setFundValue(e.target.value)}
               />
             </Form.Field>
+            {checkValidFundValue(fundValue) ? 
+            <Button onClick={() => fundCampaign(campaignID)}>{fundingLoading ? "Funding..." : "Fund this campaign"}</Button> : 
+            <Button disabled>{fundingLoading ? "Funding..." : "Fund this campaign"}</Button>}
+            {isNaN(fundValue) ? <Text color="red">{"Type a valid number. Ex.: 0.01"}</Text> : ""}
           </Form>
-          <Button
-            backgroundColor="tussock"
-            color="white"
-            _hover={{
-              background: "tussock",
-              opacity: "0.8",
-              _disabled: { opacity: "0.6" },
-            }}
-            isLoading={loading}
-            loadingText="Talking to your wallet..."
-            type="submit"
-            onClick={() => fundCampaign(campaignID)}
-          >
-            {fundingLoading ? "Funding..." : "Fund this campaign"}
-          </Button>
         </Flex>
 
       </Box>
