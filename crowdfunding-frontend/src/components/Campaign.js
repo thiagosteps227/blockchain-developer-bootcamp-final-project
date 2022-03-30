@@ -117,7 +117,7 @@ const Campaign = () => {
 
         <Text color="black" fontWeight="bold" mt="20px">
           {"Goal reached: "}
-          {goalReached ? "Yes, thanks for you help!" : "Still need to fund!"}
+          {goalReached ? "Yes, thanks for you help!" : "We still need your help!"}
         </Text>
 
         <Text color="black" fontWeight="bold" mt="10px" fontSize="20px">
@@ -137,8 +137,6 @@ const Campaign = () => {
             <Form.Field>
               <label>Funding Amount</label>
               <input
-                style={{ width: "200px" }}
-                placeholder="Funding Amount"
                 style={{ width: "200px" }}
                 value={fundValue}
                 placeholder="Funding Amount"

@@ -35,6 +35,8 @@ import project4 from "../images/creche.jpeg";
 import project5 from "../images/horse.jpeg";
 import project6 from "../images/kids.jpeg";
 import project7 from "../images/mickey.jpeg";
+import project8 from "../images/soccer.jpeg";
+import project9 from "../images/childrenproject.png";
 
 
 const Home = () => {
@@ -42,7 +44,7 @@ const Home = () => {
 
   const { state, loading, error} = useHomeFetch();
 
-  const images = [project0, project1, project2, project3, project4, project5, project6, project7];
+  const images = [project0, project1, project2, project3, project4, project5, project6, project7, project8, project9];
 
   if(error) return <div>Something went wrong...</div>
  
